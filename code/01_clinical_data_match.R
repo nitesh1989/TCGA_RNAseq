@@ -61,15 +61,7 @@ patient.data = read.table(patient.data,fill=T,stringsAsFactors=F,sep ="\t",heade
 patient.data = patient.data[c(-1,-2),]
 
 # Match the data
-subset.tumor = patient.data[which(patient.data$bcr_patient_barcode %in% substr(colnames(cdata),1,12)),]
-
-
-#Load normal patient data
-normal.data = list.files(sample.path,pattern = "normal_control")
-normal.data = read.table(normal.data,fill=T,stringsAsFactors=F,sep ="\t",header =T)
-normal.data = normal.data[c(-1),]
-
-subset.normal = normal.data[which(normal.data$bcr_patient_barcode %in% substr(colnames(cdata),1,12)),]
+subset.data = patient.data[which(patient.data$bcr_patient_barcode %in% substr(colnames(cdata),1,12)),]
 
 
 
